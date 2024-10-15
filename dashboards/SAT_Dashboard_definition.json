@@ -232,6 +232,18 @@
                 },
                 {
                     "widget": {
+                        "name": "new_text_widget",
+                        "textbox_spec": "Ceci est un widget de test !"
+                    },
+                    "position": {
+                        "x": 0,
+                        "y": 20,
+                        "width": 1,
+                        "height": 3
+                    }
+                }
+                {
+                    "widget": {
                         "name": "d5f9d10a",
                         "queries": [
                             {
