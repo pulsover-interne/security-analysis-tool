@@ -3,6 +3,7 @@ resource "databricks_sql_endpoint" "new" {
   name             = "SAT Warehouse"
   cluster_size     = "Small"
   max_num_clusters = 1
+  auto_stop_mins   = 10
 
   tags {
     custom_tags {

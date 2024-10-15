@@ -4,9 +4,9 @@ resource "databricks_job" "initializer" {
     job_cluster_key = "job_cluster"
     new_cluster {
       data_security_mode = "SINGLE_USER"
-      num_workers        = 5
+      num_workers        = 2
       spark_version      = data.databricks_spark_version.latest_lts.id
-      node_type_id       = data.databricks_node_type.smallest.id
+      node_type_id       = "r5d.large"
       runtime_engine     = "PHOTON"
       dynamic "gcp_attributes" {
         for_each = var.gcp_impersonate_service_account == "" ? [] : [var.gcp_impersonate_service_account]
@@ -38,9 +38,9 @@ resource "databricks_job" "driver" {
     job_cluster_key = "job_cluster"
     new_cluster {
       data_security_mode = "SINGLE_USER"
-      num_workers    = 5
+      num_workers    = 2
       spark_version  = data.databricks_spark_version.latest_lts.id
-      node_type_id   = data.databricks_node_type.smallest.id
+      node_type_id   = "r5d.large"
       runtime_engine = "PHOTON"
       dynamic "gcp_attributes" {
         for_each = var.gcp_impersonate_service_account == "" ? [] : [var.gcp_impersonate_service_account]
